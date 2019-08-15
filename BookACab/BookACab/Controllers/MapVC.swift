@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
+class MapVC: UIViewController {
 
+    @IBOutlet var mapView: MKMapView!
+    
+    let viewmodel = MapVM(ApiManager.shared)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
 
 }
 
