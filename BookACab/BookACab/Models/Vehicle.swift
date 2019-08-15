@@ -38,6 +38,9 @@ class Vehicle: MKPointAnnotation, Decodable {
         super.init()
         carId = data["carId"] as? Int
         titleCar = data["title"] as? String
+        if titleCar == "" || titleCar == nil {
+            titleCar = "No Name"
+        }
         lat = data["lat"] as? Double
         lon = data["lon"] as? Double
         licencePlate = data["licencePlate"] as? String

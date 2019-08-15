@@ -8,11 +8,16 @@
 
 import Foundation
 
+protocol UIDelegate: class {
+    func updateUI()
+}
+
 class MapVM {
 
     let apiManager: ApiManager!
-    var allVehicles = [Vehicle]()
-    
+    private (set) var allVehicles = [Vehicle]()
+    weak var uidelegate: UIDelegate?
+
     init(_ apiManager: ApiManager) {
         self.apiManager = apiManager
         fetchAllVehicles()
@@ -25,6 +30,7 @@ class MapVM {
             let vehicles: [Vehicle] = Decoding.decodeArray(_from: data)
             self?.allVehicles.removeAll()
             self?.allVehicles = vehicles
+            self?.uidelegate?.updateUI()
         }
     }
 }
