@@ -69,4 +69,15 @@ class Vehicle: MKPointAnnotation, Decodable {
         vehicleTypeImageUrl = data["vehicleTypeImageUrl"] as? String
         coordinate = CLLocationCoordinate2DMake(lat ?? 0, lon ?? 0)
     }
+    
+    func toDict() -> [String: Any] {
+        var dict = [String: Any]()
+        let otherSelf = Mirror(reflecting: self)
+        for child in otherSelf.children {
+            if let key = child.label {
+                dict[key] = child.value
+            }
+        }
+        return dict
+    }
 }

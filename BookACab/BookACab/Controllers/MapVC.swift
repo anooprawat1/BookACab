@@ -13,7 +13,7 @@ class MapVC: UIViewController {
 
     @IBOutlet var mapView: MKMapView!
     fileprivate let locationManager = CLLocationManager()
-
+    let apiManager = ApiManager.shared
     fileprivate var viewmodel: MapVM!
 
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class MapVC: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
-        viewmodel = MapVM(ApiManager.shared)
+        viewmodel = MapVM(apiManager)
         viewmodel.uidelegate = self
     }
 
@@ -31,6 +31,13 @@ class MapVC: UIViewController {
             let region = MKCoordinateRegion(center: coordinates, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             self.mapView.setRegion(region, animated: true)
         }
+    }
+    
+    func showDetailForCarId(_ carId: Int) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: VehicleDetailVC.className) as! VehicleDetailVC
+        let detailVM = VehicleDetailVM(apiManager, vehicleId: carId)
+        vc.viewModel = detailVM
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension MapVC: MKMapViewDelegate {
@@ -61,19 +68,21 @@ extension MapVC: MKMapViewDelegate {
         return annotationView
     }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let vehicle = view.annotation as? Vehicle {
+            showDetailForCarId(vehicle.carId ?? 0)
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        for annotation in mapView.annotations {
+        for annotation in mapView.annotations where !(annotation is MKUserLocation) {
             mapView.view(for: annotation)?.isHidden = true
         }
         view.isHidden = false
     }
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        // TO DO - SHOW DETAIL VIEW
-    }
-    
+        
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        for annotation in mapView.annotations {
+        for annotation in mapView.annotations where !(annotation is MKUserLocation) {
             mapView.view(for: annotation)?.isHidden = false
         }
     }
