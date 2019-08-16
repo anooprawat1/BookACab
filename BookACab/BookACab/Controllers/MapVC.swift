@@ -34,7 +34,7 @@ class MapVC: UIViewController {
     }
     
     func showDetailForCarId(_ carId: Int) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: VehicleDetailVC.className) as! VehicleDetailVC
+        let vc = UIStoryboard(name: UIConstants.mainStoryboard, bundle: nil).instantiateViewController(withIdentifier: VehicleDetailVC.className) as! VehicleDetailVC
         let detailVM = VehicleDetailVM(apiManager, vehicleId: carId)
         vc.viewModel = detailVM
         self.navigationController?.pushViewController(vc, animated: true)
@@ -49,7 +49,7 @@ extension MapVC: MKMapViewDelegate {
             userPin.animatesDrop = true
             return userPin
         }
-        let identifier = "Annotation"
+        let identifier = UIConstants.annotationIdentifier
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
         if annotationView == nil {
@@ -63,7 +63,7 @@ extension MapVC: MKMapViewDelegate {
             label.text = vehicleAnnotation.titleCar
             annotationView?.detailCalloutAccessoryView = label
             annotationView?.rightCalloutAccessoryView = btn
-            annotationView?.image = UIImage(named: "car")
+            annotationView?.image = UIImage(named: UIConstants.carImage)
         }
         return annotationView
     }

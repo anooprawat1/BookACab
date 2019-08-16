@@ -91,19 +91,26 @@
                                     <outlet property="delegate" destination="EUr-6x-Q9i" id="FoI-qz-9Hx"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5gY-Tv-UPU">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5gY-Tv-UPU" firstAttribute="centerY" secondItem="DH3-MA-Pfu" secondAttribute="centerY" id="4lF-RT-gP8"/>
                             <constraint firstItem="aaZ-47-xkO" firstAttribute="top" secondItem="2RL-tK-rip" secondAttribute="top" id="JnZ-q1-Qqh"/>
                             <constraint firstAttribute="bottom" secondItem="aaZ-47-xkO" secondAttribute="bottom" id="QgO-zj-GzL"/>
                             <constraint firstItem="aaZ-47-xkO" firstAttribute="leading" secondItem="DH3-MA-Pfu" secondAttribute="leading" id="SMh-D7-Uyq"/>
+                            <constraint firstItem="5gY-Tv-UPU" firstAttribute="centerX" secondItem="DH3-MA-Pfu" secondAttribute="centerX" id="mqG-4H-gTW"/>
                             <constraint firstAttribute="trailing" secondItem="aaZ-47-xkO" secondAttribute="trailing" id="yek-Ue-YcD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2RL-tK-rip"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatior" destination="5gY-Tv-UPU" id="Wpj-bn-F9f"/>
                         <outlet property="footerButtonView" destination="QvX-RL-VFe" id="eaK-sp-9Un"/>
                         <outlet property="headerImageView" destination="8SO-wH-Rdn" id="Esb-gK-7NJ"/>
+                        <outlet property="quickRentButton" destination="LNI-E2-JWn" id="qxD-LZ-Jfy"/>
                         <outlet property="vehicleTableView" destination="aaZ-47-xkO" id="Jez-a4-7AD"/>
                     </connections>
                 </viewController>

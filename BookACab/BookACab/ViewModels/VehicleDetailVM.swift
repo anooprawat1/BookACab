@@ -50,4 +50,18 @@ class VehicleDetailVM {
         description = "\(selectedData.key) - \(value)"
         return description
     }
+    
+    func quickRentVehicle(completionHandler: @escaping (_ isSuccess: Bool) -> Void) {
+        let postData = ["carId": vehicle?.carId ?? 0]
+        apiManager.post(with: Router.quickRent, postData: postData) { (data, error) in
+            guard let data = data else { return }
+            let reservationDetail: ReservationDetail = Decoding.decode(_from: data)
+            if reservationDetail.carId != nil {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+            
+        }
+    }
 }

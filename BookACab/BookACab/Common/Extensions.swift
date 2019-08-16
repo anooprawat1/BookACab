@@ -38,4 +38,15 @@ extension NSObject {
     class var className: String {
         return String(describing: self)
     }
+    
+    func toDict() -> [String: Any] {
+        var dict = [String: Any]()
+        let otherSelf = Mirror(reflecting: self)
+        for child in otherSelf.children {
+            if let key = child.label {
+                dict[key] = child.value
+            }
+        }
+        return dict
+    }
 }

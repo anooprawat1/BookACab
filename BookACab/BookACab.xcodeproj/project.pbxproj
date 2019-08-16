@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E3138542306AD8800460B39 /* ReservationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3138532306AD8800460B39 /* ReservationDetail.swift */; };
+		6E3138562307012500460B39 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3138552307012500460B39 /* Constants.swift */; };
 		6E9EF0142304653300254D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9EF0132304653300254D36 /* AppDelegate.swift */; };
 		6E9EF0162304653300254D36 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9EF0152304653300254D36 /* MapVC.swift */; };
 		6E9EF0192304653300254D36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E9EF0172304653300254D36 /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E3138532306AD8800460B39 /* ReservationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetail.swift; sourceTree = "<group>"; };
+		6E3138552307012500460B39 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6E9EF0102304653300254D36 /* BookACab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookACab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9EF0132304653300254D36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E9EF0152304653300254D36 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				6E9EF0482304684F00254D36 /* Vehicle.swift */,
+				6E3138532306AD8800460B39 /* ReservationDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			children = (
 				6E9EF0512305594800254D36 /* URLConstants.swift */,
 				6ECC0E582305CF0E00E44643 /* Extensions.swift */,
+				6E3138552307012500460B39 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E9EF0492304684F00254D36 /* Vehicle.swift in Sources */,
+				6E3138542306AD8800460B39 /* ReservationDetail.swift in Sources */,
 				6E9EF0162304653300254D36 /* MapVC.swift in Sources */,
 				6E9EF04F2305543A00254D36 /* ApiManager.swift in Sources */,
 				6E9EF0522305594800254D36 /* URLConstants.swift in Sources */,
@@ -330,6 +337,7 @@
 				6ECC0E552305C0AA00E44643 /* VehicleDetailVM.swift in Sources */,
 				6ECC0E572305C0ED00E44643 /* VehicleDetailVC.swift in Sources */,
 				6E9EF0542305A09200254D36 /* Decoding.swift in Sources */,
+				6E3138562307012500460B39 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
